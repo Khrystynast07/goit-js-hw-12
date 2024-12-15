@@ -125,6 +125,9 @@ button {
   line-height: 2;
 }
 .button-to-load {
+  margin: 0 auto;
+  margin-top: 32px;
+  border: none;
   border-radius: 8px;
   padding: 8px 16px;
   width: 125px;

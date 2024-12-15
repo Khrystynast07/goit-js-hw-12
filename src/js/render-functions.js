@@ -1,4 +1,4 @@
-// import { list } from '../main';
+import { list } from '../main';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
