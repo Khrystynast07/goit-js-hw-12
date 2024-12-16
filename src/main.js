@@ -28,8 +28,9 @@ async function getImages(event) {
   list.innerHTML = '';
   page = 1;
   loadMoreBtn.classList.add('hidden');
-  loader.classList.remove('hidden');
   query = search.value.trim();
+
+  loader.classList.remove('hidden');
   try {
     const data = await fetchImages(query, page);
 
@@ -42,6 +43,7 @@ async function getImages(event) {
     }
     createMarkup(data.hits);
     form.reset();
+
     if (data.hits.length === 15) {
       loadMoreBtn.classList.remove('hidden');
     }
@@ -69,6 +71,13 @@ async function loadMore() {
         message: "We're sorry, but you've reached the end of search results.",
       });
     }
+
+    const { height: cardHeight } =
+      image.firstElementChild.getBoundingClientRect();
+    window.scrollBy({
+      top: cardHeight * 2,
+      behavior: 'smooth',
+    });
   } catch (error) {
     iziToast.error({ position: 'topRight', message: error.message });
   } finally {
