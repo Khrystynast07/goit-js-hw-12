@@ -57,6 +57,7 @@ async function getImages(event) {
 async function loadMore() {
   page += 1;
   loader.classList.remove('hidden');
+  loadMoreBtn.classList.add('hidden');
 
   try {
     const data = await fetchImages(query, page);
